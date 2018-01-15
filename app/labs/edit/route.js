@@ -16,6 +16,11 @@ export default AbstractEditRoute.extend(AddToPatientRoute, ChargeRoute, PatientL
   actions: {
     returnToAllItems() {
       this.controller.send('returnToAllItems');
+    },
+
+    allItems() {
+      console.log('HERE?');
+      console.log(this);
     }
   },
 
