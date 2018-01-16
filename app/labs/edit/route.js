@@ -19,8 +19,11 @@ export default AbstractEditRoute.extend(AddToPatientRoute, ChargeRoute, PatientL
     },
 
     allItems() {
-      console.log('HERE?');
-      console.log(this);
+      if (this.controller.get('isCompleted')) {
+        this.transitionTo('labs.completed');
+      } else {
+        this.transitionTo('labs.index');
+      }
     }
   },
 

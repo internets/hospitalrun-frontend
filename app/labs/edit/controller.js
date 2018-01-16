@@ -12,16 +12,18 @@ export default AbstractEditController.extend(ChargeActions, PatientSubmodule, {
   chargeRoute: 'labs.charge',
   selectedLabType: null,
 
-  canComplete: function() {
+  canComplete: computed('selectedLabType.[]', 'model.labTypeName', 'isCompleted', function() {
     let isNew = this.get('model.isNew');
     let labTypeName = this.get('model.labTypeName');
     let selectedLabType = this.get('selectedLabType');
+    let isAlreadyCompleted = this.get('isCompleted');
+
     if (isNew && (Ember.isEmpty(labTypeName) || (Ember.isArray(selectedLabType) && selectedLabType.length > 1))) {
       return false;
-    } else {
-      return this.currentUserCan('complete_lab');
     }
-  }.property('selectedLabType.[]', 'model.labTypeName'),
+
+    return this.currentUserCan('complete_lab') && !isAlreadyCompleted;
+  }),
 
   actions: {
     completeLab() {
@@ -112,7 +114,7 @@ export default AbstractEditController.extend(ChargeActions, PatientSubmodule, {
     return (this.get('model.status') === LAB_STATUS_COMPLETED);
   }),
 
-  showUpdateButton: computed('isFulfilled', function() {
+  showUpdateButton: computed('isCompleted', function() {
     return this.get('isCompleted') ? false : this._super();
   })
 });
