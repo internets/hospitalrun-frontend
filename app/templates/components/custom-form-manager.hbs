@@ -1,6 +1,6 @@
 {{#each formsToDisplay as |customForm|}}
   <h4>{{customForm.form.name}}</h4>
-  {{custom-form model=model form=customForm.form propertyPrefix=customForm.propertyPrefix}}
+  {{custom-form model=model form=customForm.form propertyPrefix=customForm.propertyPrefix rapidForm=rapidForm}}
 {{/each}}
 {{#if showAddButton}}
   <div class="row">

@@ -172,7 +172,7 @@
             </div>
           {{/if}}
 
-          {{custom-form-manager model=model formType="opdReport"}}
+          {{custom-form-manager model=model formType="opdReport" rapidForm=form}}
 
         {{else}}
 
@@ -225,7 +225,7 @@
             </div>
           {{/if}}
 
-          {{custom-form-manager model=model formType="dischargeReport"}}
+          {{custom-form-manager model=model formType="dischargeReport" rapidForm=form}}
 
           {{#if model.modifiedBy}}
             <div class="ps-info-group">
