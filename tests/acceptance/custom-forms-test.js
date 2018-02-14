@@ -145,3 +145,21 @@ test('crud operations on custom-forms', function(assert) {
 
   });
 });
+
+test('switching between pages with custom forms happens without errors', function(assert) {
+  runWithPouchDump('custom-forms', function() {
+    authenticateUser();
+
+    visit('/patients/edit/new');
+    waitToAppear('h4');
+    andThen(function() {
+      assert.equal(find('h4').text(), 'Patient Form Included', 'Patient custom form is displayed');
+    });
+
+    visit('/labs/edit/new');
+    waitToAppear('h4');
+    andThen(function() {
+      assert.equal(find('h4').text(), 'Lab Form included', 'Lab custom form is displayed');
+    });
+  });
+});
