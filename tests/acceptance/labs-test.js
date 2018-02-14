@@ -88,6 +88,7 @@ test('Lab with always included custom form', function(assert) {
     visit('/labs');
 
     click('button:contains(new lab)');
+    waitToAppear('h4');
 
     andThen(() => {
       assert.equal(find('h4').text(), 'Lab Form included', 'Default form is displayed');
@@ -149,6 +150,7 @@ test('Lab with always included custom form', function(assert) {
     });
 
     click('tr:last');
+    waitToAppear('h4');
 
     andThen(() => {
       let formDiv = find('h4:contains(Lab Form included)').parent();
