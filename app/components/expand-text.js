@@ -32,7 +32,7 @@ export default Component.extend({
         }, {});
       })
       .then((expansions) => {
-        if ( !(this.get('isDestroyed') || this.get('isDestroying')) ) {
+        if (!(this.get('isDestroyed') || this.get('isDestroying'))) {
           this.set('expansions', expansions);
         }
       });

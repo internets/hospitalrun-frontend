@@ -5,6 +5,7 @@ import config from '../../config/environment';
 import './run-with-pouch-dump';
 import './authenticate-user';
 import './add-offline-users-for-electron';
+import './custom-forms';
 import './select';
 import './select-date';
 import './typeahead-fillin';

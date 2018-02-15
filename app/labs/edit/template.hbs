@@ -62,6 +62,6 @@
     {{else}}
       {{expand-text property="notes" label=(t 'labels.notes') rows=3 form=form class="js-lab-notes"}}
     {{/if}}
-    {{custom-form-manager model=model formType="lab" rapidForm=form}}
+    {{custom-form-manager model=model formType="lab" rapidForm=form isReadonly=isCompleted}}
   {{/em-form}}
 {{/edit-panel}}
