@@ -5,6 +5,9 @@ import DS from 'ember-data';
 
 moduleFor('controller:abstract-delete-controller', 'Unit | Controller | abstract-delete-controller', {
   unit: true,
+  needs: [
+    'service:metrics'
+  ],
   testModel(attrs) {
     return Ember.run(() => {
       this.register('model:test', DS.Model);

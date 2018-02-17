@@ -6,6 +6,7 @@ import localeConfig from 'ember-i18n/config/en';
 moduleFor('controller:abstract-edit-controller', 'Unit | Controller | abstract-edit-controller', {
   needs: [
     'service:i18n',
+    'service:metrics',
     'locale:en/translations',
     'locale:en/config',
     'util:i18n/missing-message',
