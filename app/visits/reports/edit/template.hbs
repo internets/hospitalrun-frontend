@@ -84,6 +84,7 @@
               <ul>
                 {{#each visit.labs as |item|}}
                   <li class="test-labs-data">{{item.labType.name}}-{{item.result}} ({{item.status}})</li>
+                  {{custom-form-manager model=item formType="lab" rapidForm=form isReadonly=true}}
                 {{/each}}
               </ul>
             </div>
